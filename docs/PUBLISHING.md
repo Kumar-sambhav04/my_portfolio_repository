@@ -2,19 +2,19 @@
 
 ## One-time activation
 
-The source and publishing workflow are added through a setup pull request. Hosting and branch protections require repository settings access. Verify the settings and workflow results below before reporting the site as live.
+The source and publishing workflow were added through setup pull request #1. The owner enabled Pages and chose manual review for changes. Branch protection is optional and does not block hosting or normal updates. Verify the Pages setting and workflow results below before reporting the site as live.
 
 1. Connect the GitHub integration to the account that owns Kumar-sambhav04. Confirm its actual write/CLI capabilities. If authentication or a required scope is missing, complete that account step; do not ask the user to paste a token into chat.
 2. Inspect Kumar-sambhav04/my_portfolio_repository. If it already exists, inspect its source and Pages settings first. Preserve an existing website and unrelated work. If it does not exist, create a public repository of that exact name with main as its default branch.
 3. Commit this package's source and workflow to the repository. Preserve the .github files. Do not include _site/, .git/, local credentials, environment files, or the original platform's project configuration. The photo, email address, and resume are public assets already included on the portfolio.
 4. Open repository Settings > Pages. Under Build and deployment, choose GitHub Actions as the source. Enable Actions for the repository if necessary. The workflow uses GitHub's short-lived token; no custom deployment secret is required.
 5. Run the Portfolio workflow on main (or push its initial commit after enabling Pages). Watch Validate portfolio, Publish portfolio, and Verify live deployment. The first run supplies the production URL and establishes the required check.
-6. Protect main using a branch rule or ruleset: require a pull request and the Validate portfolio status check; require the branch to be up to date; require conversation resolution; block force pushes and deletions. A solo owner can use zero required approving reviews, with review handled in the conversation. Do not create an approval requirement the sole author cannot satisfy. Review existing protections and preserve them.
-7. Inspect the github-pages environment and restrict deployments to main. Preserve any existing reviewer requirements and environment settings. Confirm pull requests can validate but cannot deploy.
+6. Optional: protect main using a branch rule or ruleset. The owner chose manual review for now. If protection is requested later, require a pull request and the Validate portfolio status check; block force pushes and deletions. A solo owner can use zero required approving reviews. Review existing protections and preserve them.
+7. The publishing job only runs for main; pull requests validate without deploying. Keep any existing environment restrictions, but do not introduce an extra approval gate unless requested.
 8. Open the actual live URL and check desktop/mobile navigation, project case-study dialogs, architecture tabs, photo, contact links, and the resume download. The automated workflow checks files and markup; it does not replace this visual review.
 9. Set site.json to the confirmed live address, update the editable resume's portfolio hyperlink and regenerate dist/assets/kumar-sambhav-resume.pdf. Merge and verify this final cutover update before sharing the new address.
 
-Expected address for this project repository: https://kumar-sambhav04.github.io/my_portfolio_repository/. This is a planned address until activation succeeds. A different owner, repository name, or custom domain changes it. The production workflow reads Pages' configured base URL and updates canonical metadata and sitemap automatically.
+Configured address for this project repository: https://kumar-sambhav04.github.io/my_portfolio_repository/. A different owner, repository name, or custom domain changes it. The production workflow reads Pages' configured base URL and updates canonical metadata and sitemap automatically.
 
 ## Each future change
 

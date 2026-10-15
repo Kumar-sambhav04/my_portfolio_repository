@@ -92,6 +92,8 @@ class PublishingTests(unittest.TestCase):
         self.assertIn("https://example.github.io/portfolio/sitemap.xml", (output / "robots.txt").read_text())
         self.assertEqual((output / "resume.pdf").read_bytes(), (self.source / "resume.pdf").read_bytes())
         self.assertEqual(manifest["commit"], SHA)
+        self.assertTrue((output / ".nojekyll").is_file())
+        self.assertNotIn(".nojekyll", manifest["files"])
         for name, digest in manifest["files"].items():
             self.assertEqual(hashlib.sha256((output / name).read_bytes()).hexdigest(), digest)
         self.assertEqual(validate_site(output), [])
