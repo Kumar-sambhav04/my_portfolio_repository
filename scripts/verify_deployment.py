@@ -7,15 +7,19 @@ from pathlib import PurePosixPath
 import time
 from urllib.parse import quote
 from urllib.request import Request, urlopen
+from urllib.error import HTTPError
 from build_site import normalize_url
 
 
 def fetch(url):
     request = Request(url, headers={"User-Agent": "PortfolioDeploymentCheck/1.0", "Cache-Control": "no-cache"})
-    with urlopen(request, timeout=15) as response:
-        if response.status != 200:
-            raise ValueError(f"Unexpected HTTP status {response.status}")
-        return response.read()
+    try:
+        with urlopen(request, timeout=15) as response:
+            if response.status != 200:
+                raise ValueError(f"Unexpected HTTP status {response.status} for {url}")
+            return response.read()
+    except HTTPError as error:
+        raise ValueError(f"HTTP {error.code} for {url}") from error
 
 
 def verify(url, commit, fetcher=fetch):

@@ -40,7 +40,7 @@ For a local visual preview, run `python -m http.server 8000 --directory _site` a
 
 ## Updates and rollback
 
-Changes go through a pull request with the required Validate portfolio check. Existing live content stays available while a proposed change is checked. A failed pre-deployment check prevents that workflow from publishing. If the final live verification fails, investigate the deployment; automatic rollback is deliberately not attempted. To restore an earlier version, revert the unwanted change, run checks, and merge the revert. See docs/PUBLISHING.md.
+Changes go through a pull request and the Validate portfolio check. Review the changes in the conversation before merging; branch protection is optional for this personal repository. Existing live content stays available while a proposed change is checked. A failed pre-deployment check prevents that workflow from publishing. If the final live verification fails, investigate the deployment; automatic rollback is deliberately not attempted. To restore an earlier version, revert the unwanted change, run checks, and merge the revert. See docs/PUBLISHING.md.
 
 Dependabot opens weekly pull requests for GitHub Actions updates. Review them through the same checks. Keep the account and repository available and avoid renaming the repository, changing the GitHub username, or disabling Pages without planning a URL migration.
 

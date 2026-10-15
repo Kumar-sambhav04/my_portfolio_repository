@@ -53,8 +53,9 @@ def build_site(source, output, url, commit="local"):
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
         f'<url><loc>{escape(url)}</loc></url></urlset>\n')
+    # GitHub uses .nojekyll as a publishing marker but does not serve it as a public asset.
     hashes = {p.relative_to(output).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
-              for p in sorted(output.rglob("*")) if p.is_file() and p.name != "build-info.json"}
+              for p in sorted(output.rglob("*")) if p.is_file() and p.name not in {"build-info.json", ".nojekyll"}}
     manifest = {"generator": "kumar-portfolio", "commit": commit, "url": url, "files": hashes}
     (output / "build-info.json").write_text(json.dumps(manifest, indent=2) + "\n")
     errors = validate_site(output)

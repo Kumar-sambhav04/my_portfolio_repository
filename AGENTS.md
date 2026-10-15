@@ -6,6 +6,7 @@ This repository is the source of truth for Kumar Sambhav's portfolio. The intend
 
 - Fetch the latest default branch before every change. Do not depend on files from an old chat workspace.
 - Create a short-lived branch and a pull request. Preserve unrelated work.
+- The owner chose manual review before merging. Branch protection and extra approval gates are optional; do not require repository administration to complete ordinary updates.
 - Edit source files in dist/. Never edit generated _site/ files.
 - Run the checks in README.md. A green static check does not establish visual correctness. Inspect responsive layouts and interactions using available approved browser tools for layout changes; state any verification limitation.
 - Use the user's request and current authorization to decide when to merge and publish. When publishing is authorized, merge the checked pull request; do not ask for approval already given. For draft/review-only requests, leave the pull request open.
@@ -28,4 +29,4 @@ This repository is the source of truth for Kumar Sambhav's portfolio. The intend
 
 site.json records the intended address; the production workflow uses GitHub Pages' actual configured address when packaging the site. GitHub account/repository names and custom-domain settings determine the live URL. Do not rename them casually.
 
-After the first verified GitHub deployment, update the editable resume and its downloadable PDF to the actual live address. Keep the old ChatGPT Sites URL available for previously shared resumes, but treat it as an archived copy unless explicitly asked to update it.
+The editable resume and website's downloadable PDF use the GitHub Pages address. If that address changes later, update both hyperlinks and verify the resulting files. Keep the old ChatGPT Sites URL available for previously shared resumes, but treat it as an archived copy unless explicitly asked to update it.

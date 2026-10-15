@@ -1,4 +1,4 @@
-# Validation of the prepared package
+# Portfolio validation
 
 Prepared on 16 October 2026 (India time) from the current published portfolio's source.
 
@@ -8,13 +8,13 @@ Completed locally:
 - The real portfolio passed local link, asset, anchor, metadata, and markup-reference checks.
 - The real app.js passed Node.js syntax checking.
 - The workflow YAML parsed successfully; validation/deployment/verification dependencies and publishing permission boundaries were inspected.
-- The real portfolio packaged successfully into 9 public files, plus its deployment manifest. The packaged files passed the same static checks.
-- The original photograph, resume PDF, CSS, JavaScript, and source HTML were preserved byte for byte in dist/. The build updates hosting metadata in generated output only.
+- The real portfolio packages into 8 publicly served files, a GitHub publishing marker, and its deployment manifest. The marker is retained in the upload but excluded from public-file verification because GitHub does not serve it.
+- The original photograph, CSS, JavaScript, and source HTML were preserved. The resume PDF was updated only for the new portfolio address. The build updates hosting metadata in generated output only.
 
-Not completed:
+Deployment and maintenance:
 
-- Pages enablement, branch/environment protection, GitHub Actions execution, and live GitHub deployment verification were pending at preparation. Check current repository settings and workflow results for their latest status. The owner has since connected GitHub and supplied the empty public my_portfolio_repository repository.
-- Browser-based visual and interactive testing of this package. Static validation does not establish rendering or accessibility conformance.
-- Resume hyperlink cutover. The included PDF still points to the existing ChatGPT Sites portfolio; update it after the actual new URL has been verified.
+- Pages is enabled and the initial deployment succeeded. HTTP checks returned 200 for the portfolio and build manifest. The first live-verification run identified that GitHub returns 404 for the .nojekyll publishing marker. The build now excludes that marker from the public-file manifest, with a regression assertion. Check the latest workflow for the final commit and asset verification result.
+- The owner chose manual review before merging; administrative branch protection is optional.
+- The resume hyperlink was updated to the GitHub Pages address, confirmed as a clickable PDF link, and visually checked on its single page.
 
-The expected github.io address is configuration, not a claim that a replacement website is already live.
+Verification limit: browser-based visual and interactive testing of the portfolio has not been completed because the approved browser session remained protected after authentication. Static validation and successful file verification do not establish rendering or accessibility conformance.
